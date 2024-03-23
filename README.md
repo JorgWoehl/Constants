@@ -96,7 +96,7 @@ Load individual properties:
 
 ```matlab
 uncty = Constants('uncty');
-uncty.e  % uncertainty in the value of the elementary charge
+uncty.me  % uncertainty in the value of the electron mass
 ```
 
 > [!NOTE]
@@ -137,7 +137,7 @@ const.Vm  % current value of the molar volume of an ideal gas (273.15 K, 100 kPa
 Load values for all datasets (from oldest to most recent):
 
 ```matlab
-const = Constants('values', 'all');
+const = Constants('value', 'all');
 const.h(1)    % 1998 value of the Planck constant
 const.h(4)    % 2010 value of the Planck constant
 const.h(end)  % current value of the Planck constant
@@ -230,7 +230,7 @@ Output:
 ```matlab
 symConst = Constants('sym');
 u = symunit;
-speed = unitConvert(symConst.c, u.km/u.year). % speed of light in vacuum in km/year
+speed = unitConvert(symConst.c, u.km/u.year)  % speed of light in vacuum in km/year
 double(separateUnits(speed))                  % extract value and convert to double
 ```
 
@@ -311,148 +311,148 @@ A list of [frequently asked questions](./FAQ.md) is maintained separately from t
 
 | Variable | Constant | Unit |
 |  :---  |  :---  |  :---  |
-| malpha | Alpha particle mass | kg |
-| malphainu | Alpha particle mass in u | u |
-| Malpha | Alpha particle molar mass | kg mol<sup>-1</sup> |
-| angstromstar | Angstrom star | m |
-| mu | Atomic mass constant | kg |
-| NA | Avogadro constant | mol<sup>-1</sup> |
-| muB | Bohr magneton | J T<sup>-1</sup> |
-| muBineVpertesla | Bohr magneton in eV/T | eV T<sup>-1</sup> |
-| azero | Bohr radius (atomic unit of length) | m |
-| k | Boltzmann constant | J K<sup>-1</sup> |
-| kineVperkelvin | Boltzmann constant in eV/K | eV K<sup>-1</sup> |
-| Zzero | Characteristic impedance of vacuum | ohm |
-| re | Classical electron radius | m |
-| lambdaC | Compton wavelength | m |
-| Gzero | Conductance quantum | S |
-| KJninety | Conventional value of Josephson constant | Hz V<sup>-1</sup> |
-| Aninety | Conventional value of ampere-90 | A |
-| Cninety | Conventional value of coulomb-90 | C |
-| Fninety | Conventional value of farad-90 | F |
-| Hninety | Conventional value of henry-90 | H |
-| Omeganinety | Conventional value of ohm-90 | ohm |
-| Vninety | Conventional value of volt-90 | V |
-| RKninety | Conventional value of von Klitzing constant | ohm |
-| Wninety | Conventional value of watt-90 | W |
-| xuCu | Copper x unit | m |
-| gd | Deuteron g factor | (unitless) |
-| mud | Deuteron magnetic moment | J T<sup>-1</sup> |
-| md | Deuteron mass | kg |
-| mdinu | Deuteron mass in u | u |
-| Md | Deuteron molar mass | kg mol<sup>-1</sup> |
-| rd | Deuteron rms charge radius | m |
-| ge | Electron g factor | (unitless) |
-| gammae | Electron gyromagnetic ratio | s<sup>-1</sup> T<sup>-1</sup> |
-| gammaeinMHzpertesla | Electron gyromagnetic ratio in MHz/T | MHz T<sup>-1</sup> |
-| mue | Electron magnetic moment | J T<sup>-1</sup> |
-| ae | Electron magnetic moment anomaly | (unitless) |
-| me | Electron mass (atomic unit of mass, natural unit of mass) | kg |
-| meinu | Electron mass in u | u |
-| Me | Electron molar mass | kg mol<sup>-1</sup> |
-| eV | Electron volt | J |
-| eVinhartree | Electron volt-hartree relationship | E_h |
-| e | Elementary charge (atomic unit of charge) | C |
-| F | Faraday constant | C mol<sup>-1</sup> |
-| alpha | Fine-structure constant | (unitless) |
-| cone | First radiation constant | W m^2 |
-| coneL | First radiation constant for spectral radiance | W m^2 sr<sup>-1</sup> |
-| Eh | Hartree energy (atomic unit of energy) | J |
-| EhineV | Hartree energy in eV | eV |
-| gh | Helion g factor | (unitless) |
-| muh | Helion magnetic moment | J T<sup>-1</sup> |
-| mh | Helion mass | kg |
-| mhinu | Helion mass in u | u |
-| Mh | Helion molar mass | kg mol<sup>-1</sup> |
-| sigmah | Helion shielding shift | (unitless) |
-| DeltanuCs | Hyperfine transition frequency of Cs-133 | Hz |
-| KJ | Josephson constant | Hz V<sup>-1</sup> |
-| jouleineV | Joule-electron volt relationship | eV |
-| jouleinhartree | Joule-hartree relationship | E_h |
-| kginu | Kilogram-atomic mass unit relationship | u |
-| a | Lattice parameter of silicon | m |
-| dtwotwozero | Lattice spacing of ideal Si (220) | m |
-| nzero | Loschmidt constant (273.15 K, 100 kPa) | m<sup>-3</sup> |
-| nzeroSTPold | Loschmidt constant (273.15 K, 101.325 kPa) | m<sup>-3</sup> |
-| Kcd | Luminous efficacy | lm W<sup>-1</sup> |
-| Phizero | Magnetic flux quantum | Wb |
-| R | Molar gas constant | J mol<sup>-1</sup> K<sup>-1</sup> |
-| Mu | Molar mass constant | kg mol<sup>-1</sup> |
-| MtwelveC | Molar mass of carbon-12 | kg mol<sup>-1</sup> |
-| Vm | Molar volume of ideal gas (273.15 K, 100 kPa) | m^3 mol<sup>-1</sup> |
-| VmSTPold | Molar volume of ideal gas (273.15 K, 101.325 kPa) | m^3 mol<sup>-1</sup> |
-| VmSi | Molar volume of silicon | m^3 mol<sup>-1</sup> |
-| xuMo | Molybdenum x unit | m |
-| lambdaCmu | Muon Compton wavelength | m |
-| gmu | Muon g factor | (unitless) |
-| mumu | Muon magnetic moment | J T<sup>-1</sup> |
-| amu | Muon magnetic moment anomaly | (unitless) |
-| mmu | Muon mass | kg |
-| mmuinu | Muon mass in u | u |
-| Mmu | Muon molar mass | kg mol<sup>-1</sup> |
-| lambdaCn | Neutron Compton wavelength | m |
-| gn | Neutron g factor | (unitless) |
-| gamman | Neutron gyromagnetic ratio | s<sup>-1</sup> T<sup>-1</sup> |
-| gammaninMHzpertesla | Neutron gyromagnetic ratio in MHz/T | MHz T<sup>-1</sup> |
-| mun | Neutron magnetic moment | J T<sup>-1</sup> |
-| mn | Neutron mass | kg |
-| mninu | Neutron mass in u | u |
-| Mn | Neutron molar mass | kg mol<sup>-1</sup> |
-| G | Newtonian constant of gravitation | m^3 kg<sup>-1</sup> s<sup>-2</sup> |
-| muN | Nuclear magneton | J T<sup>-1</sup> |
-| muNineVpertesla | Nuclear magneton in eV/T | eV T<sup>-1</sup> |
-| h | Planck constant | J Hz<sup>-1</sup> |
-| hineVperhertz | Planck constant in eV/Hz | eV Hz<sup>-1</sup> |
-| lP | Planck length | m |
-| mP | Planck mass | kg |
-| TP | Planck temperature | K |
-| tP | Planck time | s |
-| lambdaCp | Proton Compton wavelength | m |
-| gp | Proton g factor | (unitless) |
-| gammap | Proton gyromagnetic ratio | s<sup>-1</sup> T<sup>-1</sup> |
-| gammapinMHzpertesla | Proton gyromagnetic ratio in MHz/T | MHz T<sup>-1</sup> |
-| mup | Proton magnetic moment | J T<sup>-1</sup> |
-| sigmapprime | Proton magnetic shielding correction | (unitless) |
-| mp | Proton mass | kg |
-| mpinu | Proton mass in u | u |
-| Mp | Proton molar mass | kg mol<sup>-1</sup> |
-| rp | Proton rms charge radius | m |
-| lambdabarC | Reduced Compton wavelength (natural unit of length) | m |
-| hbar | Reduced Planck constant (atomic unit of action, natural unit of action) | J s |
-| hbarineVseconds | Reduced Planck constant in eV s (natural unit of action in eV s) | eV s |
-| lambdabarCmu | Reduced muon Compton wavelength | m |
-| lambdabarCn | Reduced neutron Compton wavelength | m |
-| lambdabarCp | Reduced proton Compton wavelength | m |
-| lambdabarCtau | Reduced tau Compton wavelength | m |
-| Rinfinity | Rydberg constant | m<sup>-1</sup> |
-| ctwo | Second radiation constant | m K |
-| gammahprime | Shielded helion gyromagnetic ratio | s<sup>-1</sup> T<sup>-1</sup> |
-| gammahprimeinMHzpertesla | Shielded helion gyromagnetic ratio in MHz/T | MHz T<sup>-1</sup> |
-| muhprime | Shielded helion magnetic moment | J T<sup>-1</sup> |
-| gammapprime | Shielded proton gyromagnetic ratio | s<sup>-1</sup> T<sup>-1</sup> |
-| gammapprimeinMHzpertesla | Shielded proton gyromagnetic ratio in MHz/T | MHz T<sup>-1</sup> |
-| mupprime | Shielded proton magnetic moment | J T<sup>-1</sup> |
-| sigmadp | Shielding difference of d and p in HD | (unitless) |
-| sigmatp | Shielding difference of t and p in HT | (unitless) |
-| c | Speed of light in vacuum (natural unit of velocity) | m s<sup>-1</sup> |
-| gzero | Standard acceleration of gravity | m s<sup>-2</sup> |
-| atm | Standard atmosphere | Pa |
-| ssp | Standard-state pressure | Pa |
-| sigma | Stefan-Boltzmann constant | W m<sup>-2</sup> K<sup>-4</sup> |
-| lambdaCtau | Tau Compton wavelength | m |
-| mtau | Tau mass | kg |
-| mtauinu | Tau mass in u | u |
-| Mtau | Tau molar mass | kg mol<sup>-1</sup> |
-| sigmae | Thomson cross section | m^2 |
-| gt | Triton g factor | (unitless) |
-| mut | Triton magnetic moment | J T<sup>-1</sup> |
-| mt | Triton mass | kg |
-| mtinu | Triton mass in u | u |
-| Mt | Triton molar mass | kg mol<sup>-1</sup> |
-| u | Unified atomic mass unit | kg |
-| epsilonzero | Vacuum electric permittivity | F m<sup>-1</sup> |
-| muzero | Vacuum magnetic permeability | N A<sup>-2</sup> |
-| RK | Von Klitzing constant | ohm |
-| sinsquaredthetaW | Weak mixing angle | (unitless) |
-| bprime | Wien frequency displacement law constant | Hz K<sup>-1</sup> |
-| b | Wien wavelength displacement law constant | m K |
+| `malpha` | Alpha particle mass | kg |
+| `malphainu` | Alpha particle mass in u | u |
+| `Malpha` | Alpha particle molar mass | kg mol<sup>-1</sup> |
+| `angstromstar` | Angstrom star | m |
+| `mu` | Atomic mass constant | kg |
+| `NA` | Avogadro constant | mol<sup>-1</sup> |
+| `muB` | Bohr magneton | J T<sup>-1</sup> |
+| `muBineVpertesla` | Bohr magneton in eV/T | eV T<sup>-1</sup> |
+| `azero` | Bohr radius (atomic unit of length) | m |
+| `k` | Boltzmann constant | J K<sup>-1</sup> |
+| `kineVperkelvin` | Boltzmann constant in eV/K | eV K<sup>-1</sup> |
+| `Zzero` | Characteristic impedance of vacuum | ohm |
+| `re` | Classical electron radius | m |
+| `lambdaC` | Compton wavelength | m |
+| `Gzero` | Conductance quantum | S |
+| `KJninety` | Conventional value of Josephson constant | Hz V<sup>-1</sup> |
+| `Aninety` | Conventional value of ampere-90 | A |
+| `Cninety` | Conventional value of coulomb-90 | C |
+| `Fninety` | Conventional value of farad-90 | F |
+| `Hninety` | Conventional value of henry-90 | H |
+| `Omeganinety` | Conventional value of ohm-90 | ohm |
+| `Vninety` | Conventional value of volt-90 | V |
+| `RKninety` | Conventional value of von Klitzing constant | ohm |
+| `Wninety` | Conventional value of watt-90 | W |
+| `xuCu` | Copper x unit | m |
+| `gd` | Deuteron g factor | (unitless) |
+| `mud` | Deuteron magnetic moment | J T<sup>-1</sup> |
+| `md` | Deuteron mass | kg |
+| `mdinu` | Deuteron mass in u | u |
+| `Md` | Deuteron molar mass | kg mol<sup>-1</sup> |
+| `rd` | Deuteron rms charge radius | m |
+| `ge` | Electron g factor | (unitless) |
+| `gammae` | Electron gyromagnetic ratio | s<sup>-1</sup> T<sup>-1</sup> |
+| `gammaeinMHzpertesla` | Electron gyromagnetic ratio in MHz/T | MHz T<sup>-1</sup> |
+| `mue` | Electron magnetic moment | J T<sup>-1</sup> |
+| `ae` | Electron magnetic moment anomaly | (unitless) |
+| `me` | Electron mass (atomic unit of mass, natural unit of mass) | kg |
+| `meinu` | Electron mass in u | u |
+| `Me` | Electron molar mass | kg mol<sup>-1</sup> |
+| `eV` | Electron volt | J |
+| `eVinhartree` | Electron volt-hartree relationship | E_h |
+| `e` | Elementary charge (atomic unit of charge) | C |
+| `F` | Faraday constant | C mol<sup>-1</sup> |
+| `alpha` | Fine-structure constant | (unitless) |
+| `cone` | First radiation constant | W m^2 |
+| `coneL` | First radiation constant for spectral radiance | W m^2 sr<sup>-1</sup> |
+| `Eh` | Hartree energy (atomic unit of energy) | J |
+| `EhineV` | Hartree energy in eV | eV |
+| `gh` | Helion g factor | (unitless) |
+| `muh` | Helion magnetic moment | J T<sup>-1</sup> |
+| `mh` | Helion mass | kg |
+| `mhinu` | Helion mass in u | u |
+| `Mh` | Helion molar mass | kg mol<sup>-1</sup> |
+| `sigmah` | Helion shielding shift | (unitless) |
+| `DeltanuCs` | Hyperfine transition frequency of Cs-133 | Hz |
+| `KJ` | Josephson constant | Hz V<sup>-1</sup> |
+| `jouleineV` | Joule-electron volt relationship | eV |
+| `jouleinhartree` | Joule-hartree relationship | E_h |
+| `kginu` | Kilogram-atomic mass unit relationship | u |
+| `a` | Lattice parameter of silicon | m |
+| `dtwotwozero` | Lattice spacing of ideal Si (220) | m |
+| `nzero` | Loschmidt constant (273.15 K, 100 kPa) | m<sup>-3</sup> |
+| `nzeroSTPold` | Loschmidt constant (273.15 K, 101.325 kPa) | m<sup>-3</sup> |
+| `Kcd` | Luminous efficacy | lm W<sup>-1</sup> |
+| `Phizero` | Magnetic flux quantum | Wb |
+| `R` | Molar gas constant | J mol<sup>-1</sup> K<sup>-1</sup> |
+| `Mu` | Molar mass constant | kg mol<sup>-1</sup> |
+| `MtwelveC` | Molar mass of carbon-12 | kg mol<sup>-1</sup> |
+| `Vm` | Molar volume of ideal gas (273.15 K, 100 kPa) | m^3 mol<sup>-1</sup> |
+| `VmSTPold` | Molar volume of ideal gas (273.15 K, 101.325 kPa) | m^3 mol<sup>-1</sup> |
+| `VmSi` | Molar volume of silicon | m^3 mol<sup>-1</sup> |
+| `xuMo` | Molybdenum x unit | m |
+| `lambdaCmu` | Muon Compton wavelength | m |
+| `gmu` | Muon g factor | (unitless) |
+| `mumu` | Muon magnetic moment | J T<sup>-1</sup> |
+| `amu` | Muon magnetic moment anomaly | (unitless) |
+| `mmu` | Muon mass | kg |
+| `mmuinu` | Muon mass in u | u |
+| `Mmu` | Muon molar mass | kg mol<sup>-1</sup> |
+| `lambdaCn` | Neutron Compton wavelength | m |
+| `gn` | Neutron g factor | (unitless) |
+| `gamman` | Neutron gyromagnetic ratio | s<sup>-1</sup> T<sup>-1</sup> |
+| `gammaninMHzpertesla` | Neutron gyromagnetic ratio in MHz/T | MHz T<sup>-1</sup> |
+| `mun` | Neutron magnetic moment | J T<sup>-1</sup> |
+| `mn` | Neutron mass | kg |
+| `mninu` | Neutron mass in u | u |
+| `Mn` | Neutron molar mass | kg mol<sup>-1</sup> |
+| `G` | Newtonian constant of gravitation | m^3 kg<sup>-1</sup> s<sup>-2</sup> |
+| `muN` | Nuclear magneton | J T<sup>-1</sup> |
+| `muNineVpertesla` | Nuclear magneton in eV/T | eV T<sup>-1</sup> |
+| `h` | Planck constant | J Hz<sup>-1</sup> |
+| `hineVperhertz` | Planck constant in eV/Hz | eV Hz<sup>-1</sup> |
+| `lP` | Planck length | m |
+| `mP` | Planck mass | kg |
+| `TP` | Planck temperature | K |
+| `tP` | Planck time | s |
+| `lambdaCp` | Proton Compton wavelength | m |
+| `gp` | Proton g factor | (unitless) |
+| `gammap` | Proton gyromagnetic ratio | s<sup>-1</sup> T<sup>-1</sup> |
+| `gammapinMHzpertesla` | Proton gyromagnetic ratio in MHz/T | MHz T<sup>-1</sup> |
+| `mup` | Proton magnetic moment | J T<sup>-1</sup> |
+| `sigmapprime` | Proton magnetic shielding correction | (unitless) |
+| `mp` | Proton mass | kg |
+| `mpinu` | Proton mass in u | u |
+| `Mp` | Proton molar mass | kg mol<sup>-1</sup> |
+| `rp` | Proton rms charge radius | m |
+| `lambdabarC` | Reduced Compton wavelength (natural unit of length) | m |
+| `hbar` | Reduced Planck constant (atomic unit of action, natural unit of action) | J s |
+| `hbarineVseconds` | Reduced Planck constant in eV s (natural unit of action in eV s) | eV s |
+| `lambdabarCmu` | Reduced muon Compton wavelength | m |
+| `lambdabarCn` | Reduced neutron Compton wavelength | m |
+| `lambdabarCp` | Reduced proton Compton wavelength | m |
+| `lambdabarCtau` | Reduced tau Compton wavelength | m |
+| `Rinfinity` | Rydberg constant | m<sup>-1</sup> |
+| `ctwo` | Second radiation constant | m K |
+| `gammahprime` | Shielded helion gyromagnetic ratio | s<sup>-1</sup> T<sup>-1</sup> |
+| `gammahprimeinMHzpertesla` | Shielded helion gyromagnetic ratio in MHz/T | MHz T<sup>-1</sup> |
+| `muhprime` | Shielded helion magnetic moment | J T<sup>-1</sup> |
+| `gammapprime` | Shielded proton gyromagnetic ratio | s<sup>-1</sup> T<sup>-1</sup> |
+| `gammapprimeinMHzpertesla` | Shielded proton gyromagnetic ratio in MHz/T | MHz T<sup>-1</sup> |
+| `mupprime` | Shielded proton magnetic moment | J T<sup>-1</sup> |
+| `sigmadp` | Shielding difference of d and p in HD | (unitless) |
+| `sigmatp` | Shielding difference of t and p in HT | (unitless) |
+| `c` | Speed of light in vacuum (natural unit of velocity) | m s<sup>-1</sup> |
+| `gzero` | Standard acceleration of gravity | m s<sup>-2</sup> |
+| `atm` | Standard atmosphere | Pa |
+| `ssp` | Standard-state pressure | Pa |
+| `sigma` | Stefan-Boltzmann constant | W m<sup>-2</sup> K<sup>-4</sup> |
+| `lambdaCtau` | Tau Compton wavelength | m |
+| `mtau` | Tau mass | kg |
+| `mtauinu` | Tau mass in u | u |
+| `Mtau` | Tau molar mass | kg mol<sup>-1</sup> |
+| `sigmae` | Thomson cross section | m^2 |
+| `gt` | Triton g factor | (unitless) |
+| `mut` | Triton magnetic moment | J T<sup>-1</sup> |
+| `mt` | Triton mass | kg |
+| `mtinu` | Triton mass in u | u |
+| `Mt` | Triton molar mass | kg mol<sup>-1</sup> |
+| `u` | Unified atomic mass unit | kg |
+| `epsilonzero` | Vacuum electric permittivity | F m<sup>-1</sup> |
+| `muzero` | Vacuum magnetic permeability | N A<sup>-2</sup> |
+| `RK` | Von Klitzing constant | ohm |
+| `sinsquaredthetaW` | Weak mixing angle | (unitless) |
+| `bprime` | Wien frequency displacement law constant | Hz K<sup>-1</sup> |
+| `b` | Wien wavelength displacement law constant | m K |
