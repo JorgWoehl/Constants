@@ -243,7 +243,7 @@ double(separateUnits(speed))                  % extract value and convert to dou
 #### Example 3
 
 
-According to Planck's blackbody radiation law, the proportionality constant between the total power flux and $T^4$ is given by $\sigma = \frac{2 \symup{\pi}^5 k^4}{15 c^2 h^3}$:
+According to Planck's blackbody radiation law, the proportionality constant between the total power flux and $T^4$ is given by &sigma; = 2 &pi;<sup>5</sup> _k_<sup>4</sup> / (15 _c_<sup>2</sup> _h_<sup>3</sup>) :
 
 ```matlab
 sigma = sym('2') * sym(pi)^sym('5') * symConst.k^sym('4') / ...
