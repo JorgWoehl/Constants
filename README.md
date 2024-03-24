@@ -8,7 +8,7 @@
 
 
 - **Convenience**: Retrieve constants using simple dot notation with intuitive variable names.
-- **Always Up-to-Date**: No need to manually look up values -- you'll always have the latest, most accurate data.
+- **Always Up-to-Date**: No need to manually look up values - you'll always have the latest, most accurate data.
 - **Uncompromising Accuracy**: Values are automatically generated from the official [CODATA source](#background), ensuring 100% accuracy.
 - **Rich Metadata**: Access properties like uncertainty, units, names, and historical data back to 1998.
 - **Symbolic Math Support**: Perform arbitrary-precision calculations, unit conversions, and unit consistency checks.

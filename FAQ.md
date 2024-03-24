@@ -4,6 +4,7 @@
 * [What is the difference between `id` and `name`?](#what-is-the-difference-between-id-and-name)
 * [Why are certain constants included but others are not?](#why-are-certain-constants-included-but-others-are-not)
 * [Why are certain entries empty?](#why-are-certain-entries-empty)
+* [Do I need the Symbolic Math Toolbox to use `Constants`?](#do-i-need-the-symbolic-math-toolbox-to-use-constants)
 
 
 ## What is the difference between `id` and `name`?
@@ -49,3 +50,9 @@ Output:
 ```console
 []
 ```
+
+
+## Do I need the Symbolic Math Toolbox to use `Constants`?
+
+
+No. `Constants` will run fine even without the Symbolic Math Toolbox present. In this case, `symvalue`, `symunit`, and `sym` will not be available as options for the first argument and will not be listed as part of the data structure.
