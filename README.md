@@ -1,5 +1,3 @@
-[![View Constants on File Exchange](https://www.mathworks.com/matlabcentral/images/matlab-file-exchange.svg)](https://www.mathworks.com/matlabcentral/fileexchange/161566-constants)
-
 # Constants
 
 
@@ -134,7 +132,7 @@ const.Vm  % current value of the molar volume of an ideal gas (273.15 K, 100 kPa
 ```
 
 > [!NOTE]
-> This is the default. Calling `Constants(arg1)` without a second argument is equivalent to `Constants(arg1, 'latest')`.
+> This is the default. Calling `Constants(arg1)` without a second argument is equivalent to calling `Constants(arg1, 'latest')`.
 
 Load values for all datasets (from oldest to most recent):
 
@@ -149,7 +147,7 @@ Load all properties and metadata for all datasets:
 
 ```matlab
 const = Constants('all', 'all');
-const.alpha    % properties and metadata for the fine-structure constant (1998 to date)
+const.alpha   % properties and metadata for the fine-structure constant (1998 to date)
 ```
 
 
@@ -195,9 +193,9 @@ Output:
 0.0000000000000000000000000000000001054571817646156391262428003302280744722889961594431207605200865210242417652521623612880705649658442982842269265184440305099090648037855420322457436
 ```
 
-The first value, defined as $N_\textnormal{A} k$ in the 2018 dataset, is rational and has 128 significant digits. The Avogadro constant $N_\textnormal{A}$ and the Boltzmann constant $k$ are defined as exact, rational values in the dataset.
+The first value, defined as _R_ = _N_<sub>A</sub> _k_ in the 2018 dataset, is rational and has 128 significant digits. (The Avogadro constant _N_<sub>A</sub> and the Boltzmann constant _k_ are defined as exact, rational values in the dataset.)
 
-The second value, defined as $h/(2 \symup{\pi})$ in the 2018 dataset, is exact but irrational. The Planck constant $h$ has an exact, rational value in this dataset, but $\symup{\pi}$ is irrational.
+The second value, defined as _h_ / (2 π) in the 2018 dataset, is exact but irrational. (The Planck constant _h_ has an exact, rational value in this dataset.)
 
 > [!NOTE]
 > Even the 64-bit (double precision) floating-point values (`value`) of exact constants are computed from their definitions in `Constants`. This makes `Constants` future-proof should MATLAB ever be released with support for 128-bit (quadruple precision) or 256-bit (octuple precision) arithmetic. 
@@ -209,7 +207,7 @@ The second value, defined as $h/(2 \symup{\pi})$ in the 2018 dataset, is exact b
 #### Example 2
 
 
-Verify units for the Rydberg constant, given by $\frac{m_\textnormal{e} e^4}{8 \epsilon_0^2 h^3 c}$ according to the Bohr model of the H atom:
+Verify units for the Rydberg constant, given by _m_<sub>e</sub> _e_^4 / (8 &epsilon;<sub>0</sub><sup>2</sup> _h_^3 c) according to the Bohr model of the H atom:
 
 ```matlab
 symUnit = Constants('symunit');
