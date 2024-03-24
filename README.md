@@ -207,7 +207,7 @@ The second value, defined as _h_ / (2 π) in the 2018 dataset, is exact but irra
 #### Example 2
 
 
-Verify units for the Rydberg constant, given by _m_<sub>e</sub> _e_<sup>4</sup> / (8 &epsilon;<sub>0</sub><sup>2</sup> _h_^3 c) according to the Bohr model of the H atom:
+Verify units for the Rydberg constant, given by _m_<sub>e</sub> _e_<sup>4</sup> / (8 &epsilon;<sub>0</sub><sup>2</sup> _h_<sup>3</sup> c) according to the Bohr model of the H atom:
 
 ```matlab
 symUnit = Constants('symunit');
