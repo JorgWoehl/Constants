@@ -402,7 +402,7 @@ A list of [frequently asked questions](./FAQ.md) is maintained separately from t
 | `muN` | Nuclear magneton | J T<sup>-1</sup> |
 | `muNineVpertesla` | Nuclear magneton in eV/T | eV T<sup>-1</sup> |
 | `h` | Planck constant | J Hz<sup>-1</sup> |
-| `hineVperhertz` | Planck constant in eV/Hz | eV Hz<sup>-1</sup> |
+| `hineVseconds` | Planck constant in eV/Hz | eV Hz<sup>-1</sup> |
 | `lP` | Planck length | m |
 | `mP` | Planck mass | kg |
 | `TP` | Planck temperature | K |
