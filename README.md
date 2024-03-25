@@ -3,13 +3,13 @@
 # Constants
 
 
-`Constants` provides easy access to the latest internationally recommended values of nearly 150 fundamental constants from physics and chemistry, along with their uncertainties, units, names, and metadata.
+`Constants` for MATLAB provides easy access to the latest internationally recommended values of nearly 150 fundamental constants from physics and chemistry, along with their uncertainties, units, names, and metadata.
 
 
 ## Key Features and Benefits
 
 
-- **Convenience**: Retrieve constants using simple dot notation with intuitive variable names.
+- **Convenience**: Retrieve constants using simple dot notation with intuitive, symbol-based variable names.
 - **Always Up-to-Date**: No need to manually look up values - you'll always have the latest, most accurate data.
 - **Uncompromising Accuracy**: Values are automatically generated from the official [CODATA source](#background), ensuring 100% accuracy.
 - **Rich Metadata**: Access properties like uncertainty, units, names, and historical data back to 1998.
