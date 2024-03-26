@@ -245,7 +245,7 @@ double(separateUnits(speed))                  % extract value and convert to dou
 #### Example 3
 
 
-According to Planck's blackbody radiation law, the proportionality constant between the total power flux and _T_<sup4</sup> is given by &sigma; = 2 &pi;<sup>5</sup> _k_<sup>4</sup> / (15 _c_<sup>2</sup> _h_<sup>3</sup>) :
+According to Planck's blackbody radiation law, the proportionality constant between the total power flux and _T_<sup>4</sup> is given by &sigma; = 2 &pi;<sup>5</sup> _k_<sup>4</sup> / (15 _c_<sup>2</sup> _h_<sup>3</sup>) :
 
 ```matlab
 sigma = sym('2') * sym(pi)^sym('5') * symConst.k^sym('4') / ...
