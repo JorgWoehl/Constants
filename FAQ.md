@@ -10,12 +10,16 @@
 ## What is the difference between `id` and `name`?
 
 
-The `id` is the constant's current name, while `name` shows its historical names. The `id` remains fixed, but the `name` of a given constant may change between datasets.
+The `id` is the constant's current name, while `name` provides its historical name. The `id` remains fixed, but the `name` of a given constant may change between datasets.
 
 ```matlab
 const = Constants('all', 'all');
-const.epsilonzero.id         % current name
-const.epsilonzero.name(1:5)  % historical name in the 1998-2014 datasets
+
+% get the current name
+const.epsilonzero.id
+
+% get historical names from 1998-2014 datasets
+const.epsilonzero.name(1:5)
 ```
 Output:
 
@@ -28,9 +32,9 @@ Output:
 ## Why are certain constants included but others are not?
 
 
-`Constants` contains constants with **dedicated symbols** specified by CODATA, but excludes derived or assembled constants without unique symbols.
+The `Constants` object contains constants with **dedicated symbols** specified by CODATA but excludes derived or assembled constants without unique symbols.
 
-For example, the electron mass ($m_\textnormal{e}$) and elementary charge ($e$) have dedicated symbols and are included in `Constants`, but the electron charge to mass quotient, $-e / m_\textnormal{e}$, is not.
+For example, the electron mass (_m_<sub>e</sub>) and elementary charge (_e_) have dedicated symbols and are included in `Constants`, but the electron charge to mass quotient, -_e_ / _m_<sub>e</sub>, is not included since it does not have a unique symbol.
 
 
 ## Why are certain entries empty?
@@ -38,7 +42,7 @@ For example, the electron mass ($m_\textnormal{e}$) and elementary charge ($e$) 
 
 Entries are empty in individually loaded datasets if the constant does not exist in the dataset.
 
-For example, the value of the Faraday constant for conventional electric current ($F^*$) is not listed in the [2018 dataset](https://physics.nist.gov/cuu/Constants/Table/allascii.txt) and is therefore empty:
+For example, the value of the Faraday constant for conventional electric current (_F_<sup>*</sup>) is not listed in the [2018 dataset](https://physics.nist.gov/cuu/Constants/Table/allascii.txt), so it will be empty when loading that specific dataset:
 
 ```matlab
 const = Constants('all', '2018');
@@ -55,4 +59,4 @@ Output:
 ## Do I need the Symbolic Math Toolbox to use `Constants`?
 
 
-No. `Constants` will run fine even without the Symbolic Math Toolbox present. In this case, `symvalue`, `symunit`, and `sym` will not be available as options for the first argument and will not be listed as part of the data structure.
+No, `Constants` will work fine without the Symbolic Math Toolbox. However, if the Symbolic Math Toolbox is not present, the `symvalue`, `symunit`, and `sym` options will not be available as part of the data structure and argument list.

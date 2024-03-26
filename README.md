@@ -9,12 +9,12 @@
 ## Key Features and Benefits
 
 
-- **Convenience**: Retrieve constants using simple dot notation with intuitive, symbol-based variable names.
+- **Convenient**: Simple dot notation with short, symbol-based variable names.
 - **Always Up-to-Date**: No need to manually look up values - you'll always have the latest, most accurate data.
-- **Uncompromising Accuracy**: Values are automatically generated from the official [CODATA source](#background), ensuring 100% accuracy.
+- **Accurate**: Automatically generated from the official [CODATA source](#background), ensuring 100% accuracy.
 - **Rich Metadata**: Access properties like uncertainty, units, names, and historical data back to 1998.
 - **Symbolic Math Support**: Perform arbitrary-precision calculations, unit conversions, and unit consistency checks.
-- **Future-Proof**: Designed to seamlessly accommodate future datasets and higher-precision arithmetic in MATLAB.
+- **Future-Proof**: Designed to seamlessly accommodate future CODATA adjustments and higher-precision arithmetic in MATLAB.
 
 
 ## Basic Usage
@@ -245,7 +245,7 @@ double(separateUnits(speed))                  % extract value and convert to dou
 #### Example 3
 
 
-According to Planck's blackbody radiation law, the proportionality constant between the total power flux and $T^4$ is given by &sigma; = 2 &pi;<sup>5</sup> _k_<sup>4</sup> / (15 _c_<sup>2</sup> _h_<sup>3</sup>) :
+According to Planck's blackbody radiation law, the proportionality constant between the total power flux and _T_<sup4</sup> is given by &sigma; = 2 &pi;<sup>5</sup> _k_<sup>4</sup> / (15 _c_<sup>2</sup> _h_<sup>3</sup>) :
 
 ```matlab
 sigma = sym('2') * sym(pi)^sym('5') * symConst.k^sym('4') / ...
