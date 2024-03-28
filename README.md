@@ -1,9 +1,9 @@
-[![View Constants on File Exchange](https://www.mathworks.com/matlabcentral/images/matlab-file-exchange.svg)](https://www.mathworks.com/matlabcentral/fileexchange/161566-constants)
+[![View Physical Constants on File Exchange](https://www.mathworks.com/matlabcentral/images/matlab-file-exchange.svg)](https://www.mathworks.com/matlabcentral/fileexchange/161566-constants)
 
-# Constants
+# Physical Constants
 
 
-`Constants` for MATLAB provides easy access to the latest internationally recommended values of nearly 150 fundamental constants from physics and chemistry, along with their uncertainties, units, names, and metadata.
+`Constants` for MATLAB provides easy access to the latest internationally recommended values of nearly 150 fundamental constants from physics and chemistry, along with their uncertainties, units, names, and other metadata.
 
 
 ## Key Features and Benefits
