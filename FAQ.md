@@ -59,4 +59,4 @@ Output:
 ## Do I need the Symbolic Math Toolbox to use `Constants`?
 
 
-No, `Constants` will work fine without the Symbolic Math Toolbox. However, if the Symbolic Math Toolbox is not present, the `symvalue`, `symunit`, and `sym` options will not be available as part of the data structure and argument list.
+No. `Constants` will work just fine without the Symbolic Math Toolbox. However, the `symvalue`, `symunit`, and `sym` options will only be available if the Symbolic Math Toolbox is present.

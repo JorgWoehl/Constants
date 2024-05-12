@@ -3,24 +3,25 @@
 # Physical Constants
 
 
-`Constants` for MATLAB provides easy access to the latest internationally recommended values of nearly 150 fundamental constants from physics and chemistry, along with their uncertainties, units, names, and other metadata.
+`Constants` for MATLAB provides easy access to the 2022 [CODATA recommended values](#background) of nearly 150 fundamental constants from physics and chemistry, along with their uncertainties, units, names, and other metadata.
+
+`Constants` has full symbolic math support and contains all historical CODATA datasets back to 1998. 
 
 
 ## Key Features and Benefits
 
 
 - **Convenient**: Simple dot notation with short, symbol-based variable names.
-- **Always Up-to-Date**: No need to manually look up values - you'll always have the latest, most accurate data.
-- **Accurate**: Automatically generated from the official [CODATA source](#background), ensuring 100% accuracy.
-- **Rich Metadata**: Access properties like uncertainty, units, names, and historical data back to 1998.
-- **Symbolic Math Support**: Perform arbitrary-precision calculations, unit conversions, and unit consistency checks.
+- **100% Accurate**: Programmatically generated from the official CODATA source.
+- **Rich Metadata**: Access properties like uncertainty, units, names, and historical datasets back to 1998.
+- **Symbolic Math Support**: Perform arbitrary-precision calculations, unit conversions, and unit consistency checks using standard MATLAB functions.
 - **Future-Proof**: Designed to seamlessly accommodate future CODATA adjustments and higher-precision arithmetic in MATLAB.
 
 
 ## Basic Usage
 
 
-Load constants:
+Load the latest (2022) values of physical constants:
 
 ```matlab
 const = Constants;
@@ -84,7 +85,7 @@ const.me  % properties and metadata for the electron mass
 | `symunit` | Symbolic unit (*)|
 | `sym` | Symbolic constant with unit (*) |
 
-(*) Requires the Symbolic Math Toolbox.
+(*) Requires a Symbolic Math Toolbox license.
 
 Access individual properties:
 
@@ -105,19 +106,18 @@ uncty.me  % uncertainty in the value of the electron mass
 > The default is `value`. Calling `Constants` is equivalent to calling `Constants('value')`.
 
 
-### Historic Data
+### Historical Data
 
 
-Calling `Constants` with a second argument provides access to any dataset since 1998:
+Calling `Constants` with a second argument provides access to any of these datasets:
 
 * `1998`
 * `2002`
 * `2006`
 * `2010`
 * `2014`
-* `2018`[^1]
-
-[^1]: At the time of writing, the 2022 dataset has not yet been released.
+* `2018`
+* `2022`
 
 Load values for a specific dataset:
 
@@ -126,7 +126,7 @@ const = Constants('value', '2006');
 const.G  % 2006 value of the Newtonian constant of gravitation
 ```
 
-Load values for the latest (most recent) dataset:
+Load values for the latest (2022) dataset:
 
 ```matlab
 const = Constants('value', 'latest');
@@ -142,7 +142,7 @@ Load values for all datasets (from oldest to most recent):
 const = Constants('value', 'all');
 const.h(1)    % 1998 value of the Planck constant
 const.h(4)    % 2010 value of the Planck constant
-const.h(end)  % current value of the Planck constant
+const.h(end)  % current (2022) value of the Planck constant
 ```
 
 Load all properties and metadata for all datasets:
@@ -174,7 +174,7 @@ The Avogadro constant was defined as an exact value (uncertainty: 0) when the SI
 ## Symbolic Math
 
 
-`Constants` also provides symbolic representations of all values, units, and constants with units to carry out symbolic manipulations and perform calculations with arbitrary accuracy.
+`Constants` also provides symbolic representations of all values, units, and constants (values & units) to carry out symbolic manipulations and perform calculations with arbitrary accuracy.
 
 
 ### `symvalue`: Symbolic Values
@@ -183,9 +183,9 @@ The Avogadro constant was defined as an exact value (uncertainty: 0) when the SI
 _Exact_ constants, whose values are _defined_ rather than experimentally determined, can be displayed with an arbitrary number of significant digits.
 
 ```matlab
-symVal = Constants('symvalue', '2018');
-vpa(symVal.R, 150)     % 2018 value of the molar gas constant, rounded to 150 significant digits
-vpa(symVal.hbar, 150)  % 2018 value of the reduced Planck constant, rounded to 150 significant digits
+svalue = Constants('symvalue', '2018');
+vpa(svalue.R, 150)     % 2018 value of the molar gas constant, rounded to 150 significant digits
+vpa(svalue.hbar, 150)  % 2018 value of the reduced Planck constant, rounded to 150 significant digits
 ```
 
 Output:
@@ -195,9 +195,9 @@ Output:
 0.0000000000000000000000000000000001054571817646156391262428003302280744722889961594431207605200865210242417652521623612880705649658442982842269265184440305099090648037855420322457436
 ```
 
-The first value, defined as _R_ = _N_<sub>A</sub> _k_ in the 2018 dataset, is rational and has 128 significant digits. (The Avogadro constant _N_<sub>A</sub> and the Boltzmann constant _k_ are defined as exact, rational values in the dataset.)
+The first value, defined as _R_ = _N_<sub>A</sub> _k_ in the 2018 dataset, is rational and has 128 significant digits. (Both the Avogadro constant _N_<sub>A</sub> and the Boltzmann constant _k_ are have exact, rational values in the dataset.)
 
-The second value, defined as _h_ / (2 π) in the 2018 dataset, is exact but irrational. (The Planck constant _h_ has an exact, rational value in this dataset.)
+The second value, defined as _h_ / (2 π) in the 2018 dataset, is exact but irrational because pi is involved. (The Planck constant _h_ has an exact, rational value in this dataset.)
 
 > [!NOTE]
 > Even the 64-bit (double precision) floating-point values (`value`) of exact constants are computed from their definitions in `Constants`. This makes `Constants` future-proof should MATLAB ever be released with support for 128-bit (quadruple precision) or 256-bit (octuple precision) arithmetic. 
@@ -212,8 +212,8 @@ The second value, defined as _h_ / (2 π) in the 2018 dataset, is exact but irra
 Verify units for the Rydberg constant, given by _m_<sub>e</sub> _e_<sup>4</sup> / (8 &epsilon;<sub>0</sub><sup>2</sup> _h_<sup>3</sup> c) according to the Bohr model of the H atom:
 
 ```matlab
-symUnit = Constants('symunit');
-simplify(symUnit.me * symUnit.e^4 / (symUnit.epsilonzero^2 * symUnit.h^3 * symUnit.c))
+sunit = Constants('symunit');
+simplify(sunit.me * sunit.e^4 / (sunit.epsilonzero^2 * sunit.h^3 * sunit.c))
 ```
 
 Output:
@@ -223,16 +223,16 @@ Output:
 ```
 
 > [!CAUTION]
-> Choose your variable names wisely; `sym` and `symunit` are the names of commands in the Symbolic Math Toolbox!
+> Choose your variable names wisely; `sym` and `symunit` are names of commands from the Symbolic Math Toolbox!
 
 
 ### `sym`: Symbolic Constants
 
 
 ```matlab
-symConst = Constants('sym');
+sconst = Constants('sym');
 u = symunit;
-speed = unitConvert(symConst.c, u.km/u.year)  % speed of light in vacuum in km/year
+speed = unitConvert(sconst.c, u.km/u.year)  % speed of light in vacuum in km/year
 double(separateUnits(speed))                  % extract value and convert to double
 ```
 
@@ -248,10 +248,10 @@ double(separateUnits(speed))                  % extract value and convert to dou
 According to Planck's blackbody radiation law, the proportionality constant between the total power flux and _T_<sup>4</sup> is given by &sigma; = 2 &pi;<sup>5</sup> _k_<sup>4</sup> / (15 _c_<sup>2</sup> _h_<sup>3</sup>) :
 
 ```matlab
-sigma = sym('2') * sym(pi)^sym('5') * symConst.k^sym('4') / ...
-(sym('15') * symConst.c^sym('2') * symConst.h^sym('3') )
+sigma = sym('2') * sym(pi)^sym('5') * sconst.k^sym('4') / ...
+(sym('15') * sconst.c^sym('2') * sconst.h^sym('3') )
 % compare this with the (exact and irrational) Stefan-Boltzmann constant from 'Constants'
-symConst.sigma
+sconst.sigma
 ```
 
 Output:
@@ -264,7 +264,7 @@ Output:
 The values are obviously identical. Let's check if their units match as well:
 
 ```matlab
-checkUnits(sigma == symConst.sigma)
+checkUnits(sigma == sconst.sigma)
 ```
 
 Output:
@@ -278,7 +278,7 @@ MATLAB thinks they are different, perhaps because `sigma` has messy units. Let's
 
 ```matlab
 sigma = simplify(sigma)
-checkUnits(sigma == symConst.sigma)
+checkUnits(sigma == sconst.sigma)
 ```
 
 Output:
@@ -289,15 +289,15 @@ Consistent: 1
 Compatible: 1
 ```
 
-We have a match!
+That's a match!
 
 
 ## Background
 
 
-`Constants` was built by scientists for students and researchers in the sciences and engineering with a focus on simplicity and completeness.
+`Constants` was built by scientists for scientists and engineers with a focus on ease of use, accuracy, and completeness.
 
-The internationally recommended values of the basic constants and conversion factors of physics and chemistry are established by the Committee on Data of the International Science Council's [(CODATA) Task Group on Fundamental Physical Constants](https://codata.org/initiatives/data-science-and-stewardship/fundamental-physical-constants/). CODATA recommended values are adjusted in a four-year cycle and available on the [National Institute of Standards and Technology (NIST) website](https://physics.nist.gov/cuu/Constants/). 
+The internationally recommended values of the basic constants and conversion factors of physics and chemistry are established by the Committee on Data of the International Science Council's [(CODATA) Task Group on Fundamental Physical Constants](https://codata.org/initiatives/data-science-and-stewardship/fundamental-physical-constants/). CODATA recommended values are adjusted in a four-year cycle and available on the [National Institute of Standards and Technology (NIST) website](https://physics.nist.gov/constants). The 2022 CODATA recommended values were published on May 9, 2024 on the NIST website.
 
 For each adjustment since 1998, NIST provides an ASCII file of all values. `Constants.m` is generated automatically by scraping the data from these ASCII files to avoid copy & paste errors and guarantee accuracy.
 
@@ -316,6 +316,7 @@ A list of [frequently asked questions](./FAQ.md) is maintained separately from t
 | `malpha` | Alpha particle mass | kg |
 | `malphainu` | Alpha particle mass in u | u |
 | `Malpha` | Alpha particle molar mass | kg mol<sup>-1</sup> |
+| `ralpha` | Alpha particle rms charge radius | m |
 | `angstromstar` | Angstrom star | m |
 | `mu` | Atomic mass constant | kg |
 | `NA` | Avogadro constant | mol<sup>-1</sup> |
