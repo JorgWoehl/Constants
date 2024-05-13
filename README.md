@@ -36,6 +36,7 @@ Access individual constants:
 format long;
 const.R   % Molar gas constant
 % >> 8.314462618153240
+
 const.NA  % Avogadro constant
 % >> 6.02214076e+23
 ```
@@ -45,6 +46,7 @@ Constants have SI units unless the variable name ends in _inUnit_:
 ```matlab
 const.hbar             % Reduced Planck constant in SI units (J s)
 % >> 1.054571817646156e-34
+
 const.hbarineVseconds  % Reduced Planck constant in eV s
 % >> 6.582119569509066e-16
 ```
@@ -147,8 +149,10 @@ Access individual properties:
 ```matlab
 const.me.value   % Value of the electron mass
 % >> 9.1093837139e-31
+
 const.me.uncty   % ... its associated uncertainty
 % >> 2.8e-40
+
 const.me.unit    % ... and units
 % >> "kg"
 ```
@@ -203,8 +207,10 @@ Load values for all datasets (from oldest to most recent):
 const = Constants('value', 'all');
 const.h(1)    % 1998 value of the Planck constant
 % >> 6.62606876e-34
+
 const.h(4)    % 2010 value of the Planck constant
 % >> 6.62606957e-34
+
 const.h(end)  % Current (2022) value of the Planck constant
 % >> 6.62607015e-34
 ```
@@ -219,6 +225,8 @@ const.alpha   % Properties and metadata for the fine-structure constant (1998 to
 Output:
 
 ```console
+  struct with fields:
+
           id: 'fine-structure constant'
         year: [1998 2002 2006 2010 2014 2018 2022]
        value: [0.007297352533000 0.007297352568000 0.007297352537600 0.007297352569800 0.007297352566400 … ] (1×7 double)
@@ -309,6 +317,7 @@ sconst = Constants('sym');
 u = symunit;
 speed = unitConvert(sconst.c, u.km/u.year)  % Speed of light in vacuum in km/year
 % >> (47303652362904/5)*([km]/[year_Julian])
+
 double(separateUnits(speed))                % Extract value and convert to double
 % >> 9.460730472580801e+12
 ```
@@ -320,8 +329,9 @@ double(separateUnits(speed))                % Extract value and convert to doubl
 According to Planck's blackbody radiation law, the proportionality constant between the total power flux and _T_<sup>4</sup> is given by &sigma; = 2 &pi;<sup>5</sup> _k_<sup>4</sup> / (15 _c_<sup>2</sup> _h_<sup>3</sup>) :
 
 ```matlab
-sigma = sym('2') * sym(pi)^sym('5') * sconst.k^sym('4') / ...
-(sym('15') * sconst.c^sym('2') * sconst.h^sym('3') )
+sigma = sym('2')*sym(pi)^sym('5')*sconst.k^sym('4') / ...
+	(sym('15')*sconst.c^sym('2')*sconst.h^sym('3'))
+	
 % Compare this with the (exact and irrational) Stefan-Boltzmann constant from 'Constants'
 sconst.sigma
 ```
@@ -350,6 +360,7 @@ MATLAB thinks they are different, perhaps because `sigma` has messy units. Let's
 
 ```matlab
 sigma = simplify(sigma)
+
 checkUnits(sigma == sconst.sigma)
 ```
 
@@ -357,6 +368,7 @@ Output:
 
 ```console
 0.000000056703744191844294539709967318892*(([Hz]*[kg])/([K]^4*[s]^2))
+
 Consistent: 1
 Compatible: 1
 ```
