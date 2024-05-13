@@ -15,17 +15,14 @@ The `id` is the constant's current name, while `name` provides its historical na
 ```matlab
 const = Constants('all', 'all');
 
-% get the current name
+% Get the current name
 const.epsilonzero.id
+% >> 'vacuum electric permittivity'
 
-% get historical names from 1998-2014 datasets
-const.epsilonzero.name(1:5)
-```
-Output:
-
-```console
-'vacuum electric permittivity'
-"electric constant"    "electric constant"    "electric constant"    "electric constant"    "electric constant"
+% Get historical names from 1998-2018 datasets
+const.epsilonzero.name(1:6)
+% >> "electric constant"    "electric constant"    "electric constant"...
+% >> "electric constant"    "electric constant"    "vacuum electric permittivity"
 ```
 
 
@@ -47,12 +44,7 @@ For example, the value of the Faraday constant for conventional electric current
 ```matlab
 const = Constants('all', '2018');
 const.Fstar
-```
-
-Output:
-
-```console
-[]
+% >> []
 ```
 
 

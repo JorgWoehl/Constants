@@ -34,15 +34,19 @@ Access individual constants:
 
 ```matlab
 format long;
-const.R   % molar gas constant
+const.R   % Molar gas constant
+% >> 8.314462618153240
 const.NA  % Avogadro constant
+% >> 6.02214076e+23
 ```
 
 Constants have SI units unless the variable name ends in _inUnit_:
 
 ```matlab
-const.hbar             % reduced Planck constant in SI units (J s)
-const.hbarineVseconds  % reduced Planck constant in eV s
+const.hbar             % Reduced Planck constant in SI units (J s)
+% >> 1.054571817646156e-34
+const.hbarineVseconds  % Reduced Planck constant in eV s
+% >> 6.582119569509066e-16
 ```
 
 Look up a constant:
@@ -51,10 +55,42 @@ Look up a constant:
 const.find('charge')
 ```
 
+Output:
+
+```console
+    Variable                    Constant                     Unit
+    ________    _________________________________________    ____
+     ralpha     Alpha particle rms charge radius              m  
+     rd         Deuteron rms charge radius                    m  
+     e          Elementary charge (atomic unit of charge)     C  
+     rp         Proton rms charge radius                      m
+```
+
 Get a list of available constants:
 
 ```matlab
 const.info
+```
+
+Output:
+
+```console
+            Variable                                           Constant                                           Unit       
+    ________________________    _______________________________________________________________________    __________________
+    malpha                      Alpha particle mass                                                        kg                
+    malphainu                   Alpha particle mass in u                                                   u                 
+    Malpha                      Alpha particle molar mass                                                  kg mol^{-1}       
+    ralpha                      Alpha particle rms charge radius                                           m                 
+    angstromstar                Angstrom star                                                              m                 
+    mu                          Atomic mass constant                                                       kg                
+               :                                                   :                                               :         
+    epsilonzero                 Vacuum electric permittivity                                               F m^{-1}          
+    muzero                      Vacuum magnetic permeability                                               N A^{-2}          
+    RK                          Von Klitzing constant                                                      ohm               
+    sinsquaredthetaW            Weak mixing angle                                                          (unitless)        
+    bprime                      Wien frequency displacement law constant                                   Hz K^{-1}         
+    b                           Wien wavelength displacement law constant                                  m K               
+	Display all 146 rows.
 ```
 
 
@@ -68,7 +104,26 @@ Load all properties and metadata:
 
 ```matlab
 const = Constants('all');
-const.me  % properties and metadata for the electron mass
+const.me  % Properties and metadata for the electron mass
+```
+
+Output:
+
+```console
+  struct with fields:
+
+          id: 'electron mass (atomic unit of mass, natural unit of mass)'
+        year: 2022
+       value: 9.109383713900000e-31
+       uncty: 2.800000000000000e-40
+        unit: "kg"
+        name: "electron mass (atomic unit of mass, natural unit of mass)"
+     isExact: 0
+       isIrr: 0
+    symvalue: 0.00000000000000000000000000000091093837139
+     symunit: [kg]
+         sym: 0.00000000000000000000000000000091093837139*[kg]
+
 ```
 
 | Property | Description |
@@ -90,16 +145,20 @@ const.me  % properties and metadata for the electron mass
 Access individual properties:
 
 ```matlab
-const.me.value   % value of the electron mass
+const.me.value   % Value of the electron mass
+% >> 9.1093837139e-31
 const.me.uncty   % ... its associated uncertainty
+% >> 2.8e-40
 const.me.unit    % ... and units
+% >> "kg"
 ```
 
 Load individual properties:
 
 ```matlab
 uncty = Constants('uncty');
-uncty.me  % uncertainty in the value of the electron mass
+uncty.me         % Uncertainty in the value of the electron mass
+% >> 2.8e-40
 ```
 
 > [!NOTE]
@@ -123,14 +182,16 @@ Load values for a specific dataset:
 
 ```matlab
 const = Constants('value', '2006');
-const.G  % 2006 value of the Newtonian constant of gravitation
+const.pg  % 2006 value of the proton g factor
+% >> 5.585694713
 ```
 
 Load values for the latest (2022) dataset:
 
 ```matlab
 const = Constants('value', 'latest');
-const.Vm  % current value of the molar volume of an ideal gas (273.15 K, 100 kPa)
+const.Vm  % Current value of the molar volume of an ideal gas (273.15 K, 100 kPa)
+% >> 0.022710954641486
 ```
 
 > [!NOTE]
@@ -141,15 +202,34 @@ Load values for all datasets (from oldest to most recent):
 ```matlab
 const = Constants('value', 'all');
 const.h(1)    % 1998 value of the Planck constant
+% >> 6.62606876e-34
 const.h(4)    % 2010 value of the Planck constant
-const.h(end)  % current (2022) value of the Planck constant
+% >> 6.62606957e-34
+const.h(end)  % Current (2022) value of the Planck constant
+% >> 6.62607015e-34
 ```
 
 Load all properties and metadata for all datasets:
 
 ```matlab
 const = Constants('all', 'all');
-const.alpha   % properties and metadata for the fine-structure constant (1998 to date)
+const.alpha   % Properties and metadata for the fine-structure constant (1998 to date)
+```
+
+Output:
+
+```console
+          id: 'fine-structure constant'
+        year: [1998 2002 2006 2010 2014 2018 2022]
+       value: [0.007297352533000 0.007297352568000 0.007297352537600 0.007297352569800 0.007297352566400 … ] (1×7 double)
+       uncty: [2.700000000000000e-11 2.400000000000000e-11 5.000000000000000e-12 2.400000000000000e-12 … ] (1×7 double)
+        unit: [""    ""    ""    ""    ""    ""    ""]
+        name: ["fine-structure constant"    "fine-structure constant"    "fine-structure constant"    …    ] (1×7 string)
+     isExact: [0 0 0 0 0 0 0]
+       isIrr: [0 0 0 0 0 0 0]
+    symvalue: [1×7 sym]
+     symunit: [1    1    1    1    1    1    1]
+         sym: [1×7 sym]
 ```
 
 
@@ -214,12 +294,7 @@ Verify units for the Rydberg constant, given by _m_<sub>e</sub> _e_<sup>4</sup> 
 ```matlab
 sunit = Constants('symunit');
 simplify(sunit.me * sunit.e^4 / (sunit.epsilonzero^2 * sunit.h^3 * sunit.c))
-```
-
-Output:
-
-```console
-1/[m]
+% >> 1/[m]
 ```
 
 > [!CAUTION]
@@ -232,13 +307,10 @@ Output:
 ```matlab
 sconst = Constants('sym');
 u = symunit;
-speed = unitConvert(sconst.c, u.km/u.year)  % speed of light in vacuum in km/year
-double(separateUnits(speed))                  % extract value and convert to double
-```
-
-```console
-(47303652362904/5)*([km]/[year_Julian])
-9.460730472580801e+12
+speed = unitConvert(sconst.c, u.km/u.year)  % Speed of light in vacuum in km/year
+% >> (47303652362904/5)*([km]/[year_Julian])
+double(separateUnits(speed))                % Extract value and convert to double
+% >> 9.460730472580801e+12
 ```
 
 
@@ -250,7 +322,7 @@ According to Planck's blackbody radiation law, the proportionality constant betw
 ```matlab
 sigma = sym('2') * sym(pi)^sym('5') * sconst.k^sym('4') / ...
 (sym('15') * sconst.c^sym('2') * sconst.h^sym('3') )
-% compare this with the (exact and irrational) Stefan-Boltzmann constant from 'Constants'
+% Compare this with the (exact and irrational) Stefan-Boltzmann constant from 'Constants'
 sconst.sigma
 ```
 
